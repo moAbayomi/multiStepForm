@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="main.js" type="module"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body class="flex bg-blue-50 justify-center items-start">
+    <div
+      id="form"
+      class="md:flex basis-[90%] bg-white mx-auto md:basis-[75%] lg:basis-[65%] my-24 relative"
+    >
+      <section
+        id="steps"
+        class="basis-[30%] bg-[url('./assets/images/bg-sidebar-mobile.svg')] md:bg-[url('./assets/images/bg-sidebar-desktop.svg')] bg-no-repeat bg-cover flex md:block p-6 md:m-4 text-2xl text-white py-24 pb-36 rounded-none md:rounded-md justify-center gap-4"
+      >
+        <div id="step" class="flex items-start gap-4 md:pt-12">
+          <span
+            class="border-2 rounded-full border-white w-12 h-12 flex justify-center items-center"
+            >1</span
+          >
+          <div class="hidden md:block uppercase whitespace-nowrap pb-6">
+            <p class="text-gray-400">step 1</p>
+            <p>your info</p>
+          </div>
+        </div>
+        <div id="step" class="flex items-start gap-4">
+          <span
+            class="border-2 rounded-full border-white w-12 h-12 flex justify-center items-center"
+            >2</span
+          >
+          <div class="hidden md:block uppercase whitespace-nowrap pb-6">
+            <p class="text-gray-400">step 2</p>
+            <p>your plan</p>
+          </div>
+        </div>
+        <div id="step" class="flex items-start gap-4">
+          <span
+            class="border-2 rounded-full border-white w-12 h-12 flex justify-center items-center"
+            >3</span
+          >
+          <div class="hidden md:block uppercase whitespace-nowrap pb-6">
+            <p class="text-gray-400">step 3</p>
+            <p>your add-ons</p>
+          </div>
+        </div>
+        <div id="step" class="flex items-start gap-4">
+          <span
+            class="border-2 rounded-full border-white w-12 h-12 flex justify-center items-center"
+            >4</span
+          >
+          <div class="hidden md:block uppercase pb-6">
+            <p class="text-gray-400">step 4</p>
+            <p>summary</p>
+          </div>
+        </div>
+      </section>
+      <section
+        id="pages"
+        class="basis-[70%] md:m-4 py-16 md:py-36 px-8 lg:pl-24 fixed left-[3.5rem] right-[3.5rem] top-[13rem] md:static"
+      >
+        <div id="inputpages"></div>
+        <template id="summary">
+          <div class="bg-white rounded-lg p-4">
+            <header class="pb-8">
+              <h1 class="text-2xl md:text-4xl font-bold pb-4">Finishing up</h1>
+              <p class="text-xl md:text-2xl">
+                Double-check everything looks OK before confirming
+              </p>
+            </header>
+
+            <div id="bill-monthly">
+              <div class="p-4 bg-blue-50">
+                <div
+                  id="bill-container"
+                  class="flex justify-between items-center pb-6 border-b-[0.5px] border-gray-400"
+                >
+                  <div id="div" class="basis-[80%]">
+                    <p class="font-bold">Arcade (Monthly)</p>
+                    <span><a href="">change</a></span>
+                  </div>
+                  <p class="font-bold">$9/mo</p>
+                </div>
+
+                <div
+                  id="bill-container"
+                  class="flex justify-between items-center pb-6 my-4"
+                >
+                  <div id="div" class="basis-[80%]">
+                    <p class="font-bold">Online service</p>
+                  </div>
+                  <p class="font-bold">+$1/mo</p>
+                </div>
+
+                <div
+                  id="bill-container"
+                  class="flex justify-between items-center pb-6 my-4"
+                >
+                  <div id="div" class="basis-[80%]">
+                    <p class="font-bold">Larger storage</p>
+                  </div>
+                  <p class="font-bold">+$2/mo</p>
+                </div>
+              </div>
+
+              <div class="p-4 bg-white">
+                <div
+                  id="total-container"
+                  class="flex justify-between items-center pb-6 my-4 mt-12"
+                >
+                  <div id="div" class="basis-[80%]">
+                    <p class="font-bold">Total (per month)</p>
+                  </div>
+                  <p class="font-bold">$12/mo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+
+        <template id="add-on-input">
+          <div class="bg-white rounded-lg p-4">
+            <header class="pb-8">
+              <h1 class="text-2xl md:text-4xl font-bold pb-4">Pick add-ons</h1>
+              <p class="text-xl md:text-2xl">
+                Add-ons help enhance your gaming experience
+              </p>
+            </header>
+
+            <div id="add-ons">
+              <div
+                id="add-on"
+                class="flex items-center gap-[5%] border-2 border-gray-300 hover:border-blue-700 hover:bg-blue-50 transition-colors duration-75 p-4 rounded-lg mb-4 cursor-pointer"
+              >
+                <input
+                  class="basis-[10%] h-6 w-6 rounded-md border-2 border-blue-700 bg-blue-700"
+                  type="checkbox"
+                  name=""
+                  id=""
+                />
+                <div class="basis-[70%]">
+                  <p class="font-bold">Online service</p>
+                  <p class="text-gray-600 text-sm">
+                    Access to multiplayer games
+                  </p>
+                </div>
+                <p class="basis-[10%] text-blue-700">+$10/yr</p>
+              </div>
+
+              <div
+                id="add-on"
+                class="flex items-center gap-[5%] border-2 border-gray-300 hover:border-blue-700 hover:bg-blue-50 transition-colors duration-75 p-4 rounded-lg mb-4 cursor-pointer"
+              >
+                <input
+                  class="basis-[10%] h-6 w-6 rounded-md border-2 border-blue-700 bg-blue-700"
+                  type="checkbox"
+                  name=""
+                  id=""
+                />
+                <div class="basis-[70%]">
+                  <p class="font-bold">Larger storage</p>
+                  <p class="text-gray-600 text-sm">Extra 1TB of cloud save</p>
+                </div>
+                <p class="basis-[10%] text-blue-700">+$20/yr</p>
+              </div>
+
+              <div
+                id="add-on"
+                class="flex items-center gap-[5%] border-2 border-gray-300 hover:border-blue-700 hover:bg-blue-50 transition-colors duration-75 p-4 rounded-lg mb-4 cursor-pointer"
+              >
+                <input
+                  class="basis-[10%] h-6 w-6 rounded-md border-2 border-blue-700 bg-blue-700"
+                  type="checkbox"
+                  name=""
+                  id=""
+                />
+                <div class="basis-[70%]">
+                  <p class="font-bold">Customizable profile</p>
+                  <p class="text-gray-600 text-sm">
+                    Custom theme on your profile
+                  </p>
+                </div>
+                <p class="basis-[10%] text-blue-700">+$20/yr</p>
+              </div>
+            </div>
+          </div>
+        </template>
+
+        <template id="plan-input">
+          <div class="bg-white rounded-lg p-4">
+            <header class="pb-8">
+              <h1 class="text-2xl md:text-4xl font-bold pb-4">
+                Select your plan.
+              </h1>
+              <p class="text-xl md:text-2xl">
+                You have the option of monthly and yearly billing
+              </p>
+            </header>
+
+            <div id="plans" class="lg:flex gap-[2%]">
+              <div
+                id="plan"
+                class="basis-[32.6%] flex lg:flex-col gap-[5%] items-center lg:items-start justify-start lg:justify-center mb-6 border-2 border-gray-300 hover:border-blue-700 rounded-lg p-4 transition-all duration-300l"
+              >
+                <span id="plan-img" class="basis-[15%] lg:mb-12"
+                  ><img src="./assets/images/icon-arcade.svg" alt=""
+                /></span>
+
+                <div id="plan-details" class="basis-[80%]">
+                  <p id="plan-name" class="font-bold">Arcade</p>
+                  <p id="plan-price" class="text-gray-400">$90/yr</p>
+                  <p id="promo-text" class="text-sm">2 months free</p>
+                </div>
+              </div>
+              <div
+                id="plan"
+                class="basis-[32.6%] flex lg:flex-col gap-[5%] items-center lg:items-start justify-start mb-6 border-2 border-gray-300 hover:border-blue-700 rounded-lg p-4 transition-all"
+              >
+                <span id="plan-img" class="basis-[15%] lg:mb-12"
+                  ><img src="./assets/images/icon-advanced.svg" alt=""
+                /></span>
+
+                <div id="plan-details" class="basis-[80%]">
+                  <p id="plan-name" class="font-bold">Advanced</p>
+                  <p id="plan-price" class="text-gray-400">$120/yr</p>
+                  <p id="promo-text" class="text-sm">2 months free</p>
+                </div>
+              </div>
+              <div
+                id="plan"
+                class="basis-[32.6%] flex lg:flex-col gap-[5%] items-center lg:items-start justify-start mb-6 border-2 border-gray-300 hover:border-blue-700 rounded-lg p-4 transition-all"
+              >
+                <span id="plan-img" class="basis-[15%] lg:mb-12"
+                  ><img src="./assets/images/icon-pro.svg" alt=""
+                /></span>
+
+                <div id="plan-details" class="basis-[80%]">
+                  <p id="plan-name" class="font-bold">Pro</p>
+                  <p id="plan-price" class="text-gray-400">$150/yr</p>
+                  <p id="promo-text" class="text-sm">2 months free</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="monthly-or-yearly"
+              class="flex justify-center items-center gap-4 bg-blue-50 rounded-md p-4 mt-8"
+            >
+              <input type="checkbox" class="sr-only" />
+              <p class="text-sm font-bold">Monthly</p>
+              <div
+                class="h-6 w-12 rounded-[1000px] bg-blue-700 relative before:content-[''] before:absolute before:h-4 before:w-4 before:rounded-full before:bg-white before:top-[3px] before:left-[3px] before:transition-all before:duration-300]"
+              ></div>
+              <p class="text-sm font-bold">Yearly</p>
+            </div>
+          </div>
+        </template>
+
+        <template id="personal-info-input">
+          <div class="bg-white rounded-lg p-4">
+            <header class="pb-8">
+              <h1 class="text-2xl md:text-4xl font-bold pb-4">
+                Personal Information
+              </h1>
+              <p class="text-xl md:text-2xl">
+                Please provide your name, email address and phone number
+              </p>
+            </header>
+
+            <form action="" class="">
+              <div class="pb-6">
+                <label class="block pb-4" for="name">Name</label>
+                <input
+                  required
+                  id="name"
+                  class="rounded-md w-full border-2 border-gray-400 pl-6 h-16"
+                  type="text"
+                  placeholder="e.g. Stephen King"
+                />
+              </div>
+
+              <div class="pb-6">
+                <label class="block pb-4" for="email">Email Address</label>
+
+                <input
+                  required
+                  class="rounded-md border-2 border-gray-400 pl-6 w-full h-16"
+                  id="email"
+                  type="email"
+                  placeholder="e.g. stephenking@lorem.com"
+                />
+              </div>
+
+              <div class="pb-6">
+                <label class="block pb-4" for="number">Phone Number</label>
+                <input
+                  required
+                  id="number"
+                  class="rounded-md border-2 border-gray-400 pl-6 w-full h-16"
+                  type="tel"
+                  placeholder="e.g. +1 234 5678 90"
+                />
+              </div>
+            </form>
+          </div>
+        </template>
+        <div
+          class="flex justify-between mt-32 md:mt-16 relative before:content-[''] before:absolute before:z-10"
+        >
+          <a
+            id="prev"
+            type="submit"
+            href="/"
+            class="bg-blue-700 px-10 py-4 text-sm md:text-normal basis-[40%] lg:basis-auto rounded-md whitespace-nowrap"
+          >
+            Go Back
+          </a>
+          <a
+            id="next"
+            href="/plan"
+            type="submit"
+            class="bg-blue-700 px-10 py-4 text-sm md:text-normal rounded-md basis-[40%] lg:basis-auto white-space-nowrap"
+          >
+            Next Step
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
