@@ -12,10 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("#prev").style.display = "inline";
     }
 
-    if (n == tabs.length - 1) {
+    if (n == tabs.length - 2) {
       document.querySelector("#next").textContent = "Confirm";
     } else {
       document.querySelector("#next").style.display = "inline";
+    }
+
+    if (n == tabs.length - 1) {
+      document.querySelector("#btns").style.display = "none";
     }
 
     fixStepIndicator(n);
@@ -31,8 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const plan = Array.from(plans).find((plan) =>
       Array.from(plan.classList).includes("plan__active")
     );
-
-    console.log(plan);
 
     const prices = Array.from(
       document.querySelectorAll("#add-on #add-on-price")
@@ -52,8 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ).filter((input) => {
       return input.checked;
     });
-
-    console.log(checkedInput);
 
     const summary = document.querySelector("#bill-monthly");
     summary.querySelector("#plan-plan").textContent = plan
@@ -94,17 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .textContent.endsWith("r")
       ? `$${billAddon + planPlanAddOn}/yr`
       : `$${billAddon + planPlanAddOn}/mo`;
-    /*  console.log(billAddon);
-    console.log(
-      +/([$])(\d+)([/]\w+)/.exec(
-        summary.querySelector("#summary-plan-price").textContent
-      )[2]
-    );
-    console.log(
-      +/([$])(\d+)([/]\w+)/.exec(
-        summary.querySelector("#everything-total").textContent
-      )[2]
-    ); */
 
     if (n == 1 && !validateForm()) return false;
     // Hide the current tab:
@@ -139,10 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
         plan.classList.remove("plan__active");
         plan.style.borderColor = "gray";
       });
-      if (e.target == div) {
-        e.target.classList.add("plan__active");
-        e.target.style.borderColor = "blue";
-      }
+
+      e.currentTarget.classList.add("plan__active");
+      e.currentTarget.style.borderColor = "hsl(243, 70%, 62%)";
     })
   );
 
@@ -157,11 +145,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // A loop that checks every input field in the current tab:
     for (i = 0; i < y.length; i++) {
       // If a field is empty...
-      console.log(y[i].value);
       if (y[i].value == "") {
         // add an "invalid" class to the field:
         y[i].previousElementSibling.style.display = "inline";
-        y[i].style.borderColor = "red";
+        y[i].style.borderColor = "hsl(354, 84%, 57%)";
         // and set the current valid status to false:
         valid = false;
       }
@@ -179,27 +166,33 @@ document.addEventListener("DOMContentLoaded", () => {
     var i,
       x = document.querySelectorAll("#step span");
     for (i = 0; i < x.length; i++) {
-      x[i].className = x[i].className.replace(" bg-gray-400", "");
+      x[i].style.background = "transparent";
     }
     //... and adds the "active" class to the current step:
-    x[n].className += " bg-gray-400";
+    x[n].style.background = "hsl(228, 100%, 84%)";
   }
 
   const toggleMonthly = document.querySelector("#toggle");
   const promoText = document.querySelectorAll("#promo-text");
   const planText = document.querySelectorAll("#plan-price");
+  const monthlyText = document.querySelector("#toggle-monthly");
+  const yearlyText = document.querySelector("#toggle-yearly");
   toggleMonthly.addEventListener("click", (e) => {
     const toggle = toggleMonthly.firstElementChild;
     if (toggle.style.justifyContent == "end") {
+      yearlyText.style.color = "hsl(231, 11%, 63%)";
       toggle.style.justifyContent = "start";
       toggle.style.marginLeft = "";
+      monthlyText.style.color = "hsl(213, 96%, 18%)";
       Array.from(promoText).forEach((text) => (text.style.display = "none"));
       Array.from(planText).forEach(
         (text, i) => (text.textContent = `$${9 + i * 3}/mo`)
       );
     } else {
+      monthlyText.style.color = "hsl(231, 11%, 63%)";
       toggle.style.justifyContent = "end";
       toggle.style.marginLeft = "auto";
+      yearlyText.style.color = "hsl(213, 96%, 18%)";
       Array.from(promoText).forEach((text) => (text.style.display = "block"));
       Array.from(planText).forEach(
         (text, i) => (text.textContent = `$${90 + i * 30}/yr`)
